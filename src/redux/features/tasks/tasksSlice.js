@@ -13,7 +13,7 @@ const initialState = {
       priority: "high",
     },
   ],
-  userSepcificTaks: [],
+  userSpecificTasks: [],
 };
 const tasksSlice = createSlice({
   name: "tasksSlice",
@@ -45,7 +45,7 @@ const tasksSlice = createSlice({
       }
     },
     userTasks: (state, { payload }) => {
-      state.userSepcificTaks = state.tasks.filter(
+      state.userSpecificTasks = state.tasks.filter(
         (item) => item.assignedTo === payload
       );
     },
