@@ -36,13 +36,14 @@ const tasksSlice = createSlice({
     },
     updateStatus: (state, { payload }) => {
       const target = state.tasks.find((item) => item.id === payload.id);
-      if (target.status === "pending") {
-        target.status = "running";
-      } else if (target.status === "running") {
-        target.status = "done";
-      } else {
-        target.status = "archive";
-      }
+      target.status = payload.status;
+      // if (target.status === "pending") {
+      //   target.status = "running";
+      // } else if (target.status === "running") {
+      //   target.status = "done";
+      // } else {
+      //   target.status = "archive";
+      // }
     },
     userTasks: (state, { payload }) => {
       state.userSpecificTasks = state.tasks.filter(
