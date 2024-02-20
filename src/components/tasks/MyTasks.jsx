@@ -7,23 +7,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { userTasks } from "../../redux/features/tasks/tasksSlice";
 
 const MyTasks = () => {
-  const item = {
-    id: 1,
-    status: "pending",
-    title: "Remove Button",
-    description:
-      "We need a remove button in our task card. Meke the button red and use Heroicon for tashbin icon.",
-    date: "2023-08-28",
-    assignedTo: "Mir Hussain",
-    priority: "high",
-  };
-
   const { tasks } = useSelector((state) => state.tasksSlice);
   const { name: userName } = useSelector((state) => state.userSlice);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(userTasks(userName));
   }, [userName, dispatch, tasks]);
+
   return (
     <div>
       <h1 className="text-xl my-3">My Tasks</h1>

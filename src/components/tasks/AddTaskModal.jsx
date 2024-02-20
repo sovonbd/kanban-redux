@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import Modal from "../ui/Modal";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addTask } from "../../redux/features/tasks/tasksSlice";
 
 const AddTaskModal = ({ isOpen, setIsOpen }) => {
@@ -63,7 +63,7 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
               className="w-full rounded-md"
               id="assignedTo"
               {...register("assignedTo")}>
-              <option value="Mir Hussain">Sovon</option>
+              <option value="Sovon">Sovon</option>
               <option value="Mezba Abedin">Mezba Abedin</option>
               <option value="Nahid Hasan">Nahid Hasan</option>
               <option value="Mizanur Rahman">Mizanur Rahman</option>
