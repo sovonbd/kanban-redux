@@ -1,13 +1,18 @@
 import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import MyTasks from "../components/tasks/MyTasks";
 import TaskCard from "../components/tasks/TaskCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTaskModal from "../components/tasks/AddTaskModal";
 import { useSelector } from "react-redux";
 
 const Tasks = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { tasks } = useSelector((state) => state.tasksSlice);
+  const { name } = useSelector((state) => state.userSlice);
+
+  useEffect(()=>{
+    
+  }, [])
 
   const pendingTasks = tasks.filter((item) => item.status === "pending");
   const runningTasks = tasks.filter((item) => item.status === "running");
