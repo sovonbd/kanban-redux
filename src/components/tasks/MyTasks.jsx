@@ -3,29 +3,33 @@ import {
   DocumentMagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+
+import { useDispatch, useSelector } from "react-redux";
+import TaskDetailsModal from "./TaskDetailsModal";
 import { updateStatus, userTasks } from "../../redux/features/tasks/tasksSlice";
-import AddTaskModal from "./AddTaskModal";
 
 const MyTasks = () => {
   const { tasks, userSpecificTasks } = useSelector((state) => state.tasksSlice);
-  const { name: userName } = useSelector((state) => state.userSlice);
+  const { name } = useSelector((state) => state.userSlice);
   const [isOpen, setIsOpen] = useState(false);
   const [taskId, setTaskId] = useState(0);
 
-  const handleModal = (id) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userTasks(name));
+  }, [dispatch, name, tasks]);
+
+  const handleDetails = (id) => {
     setTaskId(id);
     setIsOpen(!isOpen);
   };
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(userTasks(userName));
-  }, [userName, dispatch, tasks]);
 
-  console.log(userSpecificTasks, userName);
+  console.log(taskId);
+
   return (
     <div>
-      <AddTaskModal isOpen={isOpen} setIsOpen={setIsOpen} id={taskId} />
+      <TaskDetailsModal isOpen={isOpen} setIsOpen={setIsOpen} id={taskId} />
       <h1 className="text-xl my-3">My Tasks</h1>
       <div className=" h-[750px] overflow-auto space-y-3">
         {userSpecificTasks?.map((item) => (
@@ -35,7 +39,7 @@ const MyTasks = () => {
             <h1>{item.title}</h1>
             <div className="flex gap-3">
               <button
-                onClick={() => handleModal(item.id)}
+                onClick={() => handleDetails(item.id)}
                 className="grid place-content-center"
                 title="Details">
                 <DocumentMagnifyingGlassIcon className="w-5 h-5 text-primary" />
