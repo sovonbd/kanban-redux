@@ -27,7 +27,6 @@ const MyTasks = () => {
 
   console.log(taskId);
 
-
   return (
     <div>
       <TaskDetailsModal isOpen={isOpen} setIsOpen={setIsOpen} id={taskId} />
