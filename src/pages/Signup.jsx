@@ -3,7 +3,7 @@ import loginImage from "../assets/image/login.svg";
 import { useForm, useWatch } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { createUser } from "../redux/user/userSlice";
+import { createUser } from "../redux/features/user/userSlice";
 
 const Signup = () => {
   const { handleSubmit, register, control } = useForm();
