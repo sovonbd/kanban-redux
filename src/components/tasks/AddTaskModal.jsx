@@ -33,7 +33,6 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
         </div>
         <div className="flex flex-col mb-5">
           <label htmlFor="title" className="mb-2">
-            Description
           </label>
           <textarea
             className="w-full rounded-md"
