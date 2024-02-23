@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import Modal from "../ui/Modal";
+import { useSelector } from 'react-redux';
+import Modal from '../ui/Modal';
 
 const TaskDetailsModal = ({ isOpen, setIsOpen, id }) => {
   const { tasks } = useSelector((state) => state.tasksSlice);
