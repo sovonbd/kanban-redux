@@ -13,7 +13,12 @@ const initialState = {
 export const createUser = createAsyncThunk(
   "userSlice/createUser",
   async ({ name, email, password }) => {
-    
+    const data = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(auth.currentUser, {
+      displayName: name,
+    });
+
+    console.log(data);
     return {
       email: data.user.email,
       name: data.user.displayName,
