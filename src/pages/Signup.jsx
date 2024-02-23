@@ -29,7 +29,7 @@ const Signup = () => {
 
   const onSubmit = ({ name, email, password }) => {
     // Email Password signup
-    dispatch(createUser({ name, email, password }));
+    dispatch(createUser({ email, password, name }));
 
     console.log(name, email, password);
   };

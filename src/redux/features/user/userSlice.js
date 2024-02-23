@@ -12,7 +12,7 @@ const initialState = {
 
 export const createUser = createAsyncThunk(
   "userSlice/createUser",
-  async ({ name, email, password }) => {
+  async ({ email, password, name }) => {
     const data = await createUserWithEmailAndPassword(auth, email, password);
     await updateProfile(auth.currentUser, {
       displayName: name,
@@ -63,4 +63,5 @@ const userSlice = createSlice({
   },
 });
 
+export const { setUser, toggleLoading } = userSlice.actions;
 export default userSlice.reducer;
