@@ -72,7 +72,6 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
             <option value="Mehedi Anik">Mehedi Anik</option>
             <option value="Ehtisam Haq">Ehtisam Haq</option>
             <option value="Anisur Rahman">Anisur Rahman</option>
-            <option value="Muktadir Hasan">Muktadir Hasan</option>
             <option value="Masud Alam">Masud Alam</option>
           </select>
         </div>
